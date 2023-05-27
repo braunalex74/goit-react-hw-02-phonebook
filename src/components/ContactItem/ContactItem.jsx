@@ -1,12 +1,20 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   ListItem,
   ContactName,
   ContactNumber,
   DeleteButton,
-} from './ContactItem.styled';
+} from 'components/ContactList/ContactList.styled';
 
 export class ContactItem extends React.Component {
+  static propTypes = {
+    id: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    number: PropTypes.string.isRequired,
+    onDelete: PropTypes.func.isRequired,
+  };
+
   handleDelete = () => {
     const { id, onDelete } = this.props;
     onDelete(id);

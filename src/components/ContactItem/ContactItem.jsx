@@ -1,4 +1,10 @@
 import React from 'react';
+import {
+  ListItem,
+  ContactName,
+  ContactNumber,
+  DeleteButton,
+} from './ContactItem.styled';
 
 export class ContactItem extends React.Component {
   handleDelete = () => {
@@ -9,12 +15,11 @@ export class ContactItem extends React.Component {
   render() {
     const { name, number } = this.props;
     return (
-      <li>
-        {name}: {number}
-        <button type="button" onClick={this.handleDelete}>
-          Видалити
-        </button>
-      </li>
+      <ListItem>
+        <ContactName>{name}</ContactName>
+        <ContactNumber>{number}</ContactNumber>
+        <DeleteButton onClick={this.handleDelete}>Видалити</DeleteButton>
+      </ListItem>
     );
   }
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Form } from './ContactForm.styled';
 
 export class ContactForm extends React.Component {
   state = {
@@ -34,7 +35,7 @@ export class ContactForm extends React.Component {
   render() {
     const { name, number } = this.state;
     return (
-      <form onSubmit={this.handleSubmit}>
+      <Form onSubmit={this.handleSubmit}>
         <label>
           Name:
           <input
@@ -62,7 +63,7 @@ export class ContactForm extends React.Component {
         </label>
         <br />
         <button type="submit">Add Contact</button>
-      </form>
+      </Form>
     );
   }
 }

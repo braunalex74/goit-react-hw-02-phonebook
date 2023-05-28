@@ -1,10 +1,12 @@
 import React from 'react';
 import { nanoid } from 'nanoid';
-import PropTypes from 'prop-types';
-import { Container, Title, FilterInput } from './App.styled';
 
+import PropTypes from 'prop-types';
+
+import { Container, Title, FilterInput } from './App.styled';
 import { ContactForm } from './ContactForm/ContactForm';
-import { ContactList } from './ContactList/ContactList';
+import ContactList from './ContactList/ContactList';
+import ErrorBoundary from './ErrorBoundary';
 
 export class App extends React.Component {
   state = {
@@ -42,7 +44,10 @@ export class App extends React.Component {
     return (
       <Container>
         <Title>Phonebook</Title>
-        <ContactForm onAdd={this.handleAddContact} contacts={contacts} />
+        <ContactForm
+          onAdd={this.handleAddContact}
+          contacts={this.state.contacts}
+        />
 
         <h2>Contacts</h2>
         <FilterInput
@@ -51,10 +56,12 @@ export class App extends React.Component {
           onChange={this.handleFilterChange}
           placeholder="Search contacts..."
         />
-        <ContactList
-          contacts={filteredContacts}
-          onDelete={this.handleDeleteContact}
-        />
+        <ErrorBoundary>
+          <ContactList
+            contacts={filteredContacts}
+            onDelete={this.handleDeleteContact}
+          />
+        </ErrorBoundary>
       </Container>
     );
   }

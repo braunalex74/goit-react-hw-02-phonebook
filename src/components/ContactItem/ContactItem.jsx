@@ -5,9 +5,9 @@ import {
   ContactName,
   ContactNumber,
   DeleteButton,
-} from 'components/ContactList/ContactList.styled';
+} from './ContactItem.styled';
 
-export class ContactItem extends React.Component {
+export default class ContactItem extends React.Component {
   static propTypes = {
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,

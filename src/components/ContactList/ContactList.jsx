@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ContactItem } from 'components/ContactItem/ContactItem';
+import ContactItem from 'components/ContactItem/ContactItem';
 
-export class ContactList extends React.Component {
+export default class ContactList extends React.Component {
   static propTypes = {
     contacts: PropTypes.arrayOf(
       PropTypes.shape({

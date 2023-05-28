@@ -1,7 +1,19 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import { Form } from './ContactForm.styled';
 
 export class ContactForm extends React.Component {
+  static propTypes = {
+    contacts: PropTypes.arrayOf(
+      PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        number: PropTypes.string.isRequired,
+      })
+    ).isRequired,
+    onAdd: PropTypes.func.isRequired,
+  };
+
   state = {
     name: '',
     number: '',

@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import { Container, Title, FilterInput } from './App.styled';
 import { ContactForm } from './ContactForm/ContactForm';
 import ContactList from './ContactList/ContactList';
-import ErrorBoundary from './ErrorBoundary';
+// import ErrorBoundary from './ErrorBoundary';
 
 export class App extends React.Component {
   state = {
@@ -56,12 +56,12 @@ export class App extends React.Component {
           onChange={this.handleFilterChange}
           placeholder="Search contacts..."
         />
-        <ErrorBoundary>
-          <ContactList
-            contacts={filteredContacts}
-            onDelete={this.handleDeleteContact}
-          />
-        </ErrorBoundary>
+        {/* <ErrorBoundary> */}
+        <ContactList
+          contacts={filteredContacts}
+          onDelete={this.handleDeleteContact}
+        />
+        {/* </ErrorBoundary> */}
       </Container>
     );
   }

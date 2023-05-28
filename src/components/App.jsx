@@ -1,8 +1,8 @@
 import React from 'react';
 import { nanoid } from 'nanoid';
 import PropTypes from 'prop-types';
-
 import { Container, Title, FilterInput } from './App.styled';
+
 import { ContactForm } from './ContactForm/ContactForm';
 import { ContactList } from './ContactList/ContactList';
 
@@ -29,8 +29,8 @@ export class App extends React.Component {
     this.setState({ contacts: updatedContacts });
   };
 
-  handleFilterChange = e => {
-    this.setState({ filter: e.target.value });
+  handleFilterChange = event => {
+    this.setState({ filter: event.target.value });
   };
 
   render() {
